@@ -19,10 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/authors', 'HomeController@authors')->name('authors');
-Route::post('/authors', 'HomeController@addAuthor');
-Route::get('/authors/delete/{id}', 'HomeController@deleteAuthor');
+Route::get('/authors', 'AuthorController@authors')->name('authors');
+Route::post('/authors', 'AuthorController@addAuthor');
+Route::get('/authors/delete/{id}', 'AuthorController@deleteAuthor');
 
-Route::get('/books', 'HomeController@books')->name('books');
-Route::post('/books', 'HomeController@addBook');
-Route::get('/books/delete/{id}', 'HomeController@deleteBook');
+Route::get('/books', 'BookController@books')->name('books');
+Route::post('/books', 'BookController@addBook');
+Route::get('/books/delete/{id}', 'BookController@deleteBook');
