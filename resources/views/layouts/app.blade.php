@@ -51,7 +51,10 @@
                             <li><a class="nav-link" href="{{ route('authors') }}">{{ __('Authors') }}</a></li>
                             <li><a class="nav-link" href="{{ route('books') }}">{{ __('Books') }}</a></li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+
+                                //Added onclick to the navbarDropdown so that it could toggle the visibilty of the dropdown-menu
+
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" onclick="$('.dropdown-menu').toggle();" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
