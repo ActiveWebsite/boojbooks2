@@ -14,8 +14,7 @@
                 <div class="card-header">Add Author</div>
 
                 <div class="card-body">
-                    <form method="post">
-                        @csrf
+                    {{ Form::open(array('method' => 'post', 'route' => 'authors.post')) }}
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input name="name" type="text" class="form-control" id="name" placeholder="Author Name">
@@ -29,7 +28,7 @@
                             <textarea name="biography"class="form-control" id="biography" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                    {{ Form::close() }}
                 </div>
             </div>
 
@@ -56,7 +55,7 @@
                                 <td>{{ $author->birthday }}</td>
                                 <td>{{ $author->books->count() }}</td>
                                 <td>{{ $author->biography }}</td>
-                                <td><a href="/authors/delete/{{ $author->id }}">Delete Author</a></td>
+                                <td><a href="{{ route('authors.delete', $author) }}">Delete Author</a></td>
                             </tr>
                             @endforeach
                         </tbody>
