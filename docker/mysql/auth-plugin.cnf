@@ -1,0 +1,6 @@
+# See https://bugs.php.net/bug.php?id=76243
+#     https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+#     http://smalldatum.blogspot.com/2018/04/fun-with-cachingsha2password-in-mysql.html
+#     http://databaseblog.myname.nl/2018/02/how-cachingsha2password-leaks-passwords.html
+[mysqld]
+default_authentication_plugin=mysql_native_password
