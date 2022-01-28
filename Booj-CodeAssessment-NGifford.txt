@@ -1,0 +1,39 @@
+Boojbooks2 Code Assessment
+Nathan Gifford
+
+File: .env.example
+- missing the APP_KEY. Running php artisan key:generate will address this.
+- also missing the DB_PASSWORD, which is needed to connect to the books database
+
+File: phpunit.xml
+- You should add this in the <php> section:
+	<env name="DB_CONNECTION" value="sqlite"/>
+	<env name="DT_DATABASE" value=":memory:"/>
+	
+	This will allow for testing in memory without having to connect to a database.
+	
+File: /resources/views/layouts/app.blade.php
+- bootstrap.css and jquery are not loading. You need to change:
+<script src="/js/jquery-3.3.1.js"> to <script src="js/jquery-3.3.1.js">
+Same thing with the CSS file, remove the slash before "css" and "js".
+
+File: /public/.htaccess
+- added this line as everything is written to look in the main directory of the installation, NOT in /public.
+
+Files: /resources/views/books.blade.php
+       /resources/views/authors.blade.php
+- none of the form fields are set as required, so you are able to submit an entry with no data or missing data. Simple fix is to add "required" into each of the form input elements.
+- set input "type" of "page count" field to "number" instead of "text" so the user can not type in letters.
+
+Files: /app/Http/Controllers/HomeController.php
+- need to add validation to addAuthor() and addBook() functions, for required fields, integer validation and date format.
+- a separate validation controller could also be created to handle this and leave the original controller for just creating the records. This would be preferable and cleaner.
+- add if statement in author and book view files to display validation errors.
+
+NOTES:
+
+I found that the core functionality of this app was working. It just needs completed with validation and such to take it from "working" to "working well". I built one test case file, but ran out of time to really develop it and make sure it actually worked. I wanted to at least put something in there so you knew that I was familiar with setting up test cases. 
+
+I do want to say that while I have many many years of PHP/MySQL experience, and many of those in MVC frameworks, the specific flavor of Laravel is newer to me still. I've been getting more familiar with it over the last year and very much would love the opportunity to keep learning, keep growing, and add all of that to the wide variety of experience that I already bring to the table. I'd love to do this at Booj and hope to have the opportunity to do so. Thank you!
+
+Nathan Gifford
